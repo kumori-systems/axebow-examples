@@ -8,7 +8,7 @@ This application is composed by 3 services:
 
 * employee-service-application-frontend. Frontend web application, built with Angular 9.
 * employee-service-application-backend. Backend REST API, built with NodeJS.
-* employee-service-application-db. MySQL DB.
+* employee-service-application-db. Mongo DB.
 
 == Support
 
