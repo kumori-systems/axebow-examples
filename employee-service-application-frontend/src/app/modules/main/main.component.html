@@ -1,0 +1,15 @@
+<div class="main-container" >
+        <app-header (toggleNavbarButton)="snav.toggle()"></app-header>
+        <mat-sidenav-container class="sidebar-container" autosize>
+                <mat-sidenav class="sidebar" #snav [mode]="mobileQuery.matches ? 'over' : 'side'" opened>
+                        <app-sidebar [sidebarConfig]="sidebarConfig">
+                        </app-sidebar>
+                </mat-sidenav>
+                <mat-sidenav-content>
+                        <div class="content-container">
+                                        <router-outlet></router-outlet>
+                        </div>
+                </mat-sidenav-content>
+              </mat-sidenav-container>
+        
+</div>

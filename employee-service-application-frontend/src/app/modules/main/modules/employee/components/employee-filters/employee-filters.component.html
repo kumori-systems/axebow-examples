@@ -1,0 +1,45 @@
+<div class="filter-container">
+    <mat-accordion class="filter-headers-align">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Filtrar
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>search</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <form [formGroup]="filterForm">
+                <mat-form-field>
+                    <mat-label>Nombre empleado</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Departamento</mat-label>
+                    <mat-select formControlName="departmentId" >
+                        <mat-option [value]="null">Todos</mat-option>
+                        <mat-option *ngFor="let department of departments" [value]="department.id">{{department.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                        <mat-label>Fecha de registro</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="registerDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                <div>
+                        <button (click)="filterForm.reset()" mat-button color="warn">
+                                Limpiar
+                                <mat-icon>clear</mat-icon>
+                            </button>
+                </div>
+                  
+            </form>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>

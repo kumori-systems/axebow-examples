@@ -1,0 +1,48 @@
+<div class="detail-header-container">
+    <button [routerLink]="[routerDeclarations.employees]" routerLinkActive="router-link-active"  mat-icon-button color="primary" aria-label="edit button">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2>{{action === 'new' ? 'Nuevo' : 'Editar'}} empleado</h2>
+</div>
+
+<div class="detail-content-container">
+    <form class="example-form" [formGroup]="employeeForm">
+        <mat-card class="form-container">
+            <mat-form-field class="form-control-container">
+                <mat-label>Nombre</mat-label>
+                <input matInput [formControlName]="'name'" placeholder="Nombre del empleado">
+                <mat-error>
+                    El nombre es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-control-container">
+                <mat-label>Apellidos</mat-label>
+                <input matInput [formControlName]="'lastname'" placeholder="Apellidos del empleado">
+                <mat-error>
+                    Los apellidos es obligatorio
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="form-control-container">
+                    <mat-label>Departamento</mat-label>
+                <mat-select formControlName="departmentId">
+                    <mat-option *ngFor="let department of departments" [value]="department.id">{{department.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-control-container">
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="age-container" *ngIf="employeeForm.get('birthdate').value"><span>La edad del empleado es:
+                    {{ageFromDateOfBirthday(employeeForm.get('birthdate').value)}} años</span></div>
+            <div class="button-container">
+                <button [disabled]="!employeeForm.valid" (click)="saveEmployee(employeeForm.value)" mat-raised-button color="primary">
+                    Guardar
+                    <mat-icon>save</mat-icon>
+                </button>
+            </div>
+        </mat-card>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+<div class="detail-header-container">
+        <button [routerLink]="[routerDeclarations.departments]" routerLinkActive="router-link-active"  mat-icon-button color="primary" aria-label="edit button">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h2>{{action === 'new' ? 'Nuevo' : 'Editar'}} departamento</h2>
+    </div>
+    
+    <div class="detail-content-container">
+        <form class="example-form" [formGroup]="departmentForm">
+            <mat-card class="form-container">
+                <mat-form-field class="form-control-container">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput [formControlName]="'name'" placeholder="Nombre del departamento">
+                    <mat-error>
+                        El nombre es obligatorio
+                    </mat-error>
+                </mat-form-field>
+                <div class="button-container">
+                    <button [disabled]="!departmentForm.valid" (click)="saveDepartment(departmentForm.value)" mat-raised-button color="primary">
+                        Guardar
+                        <mat-icon>save</mat-icon>
+                    </button>
+                </div>
+            </mat-card>
+        </form>
+    </div>

@@ -1,0 +1,32 @@
+<div class="login-container">
+    <mat-card>
+        <div class="login-header-img">
+            <img src="./../../../assets/images/logo-reverse.png">
+        </div>
+        <h2>Iniciar sesión</h2>
+        <div class="form-login-container">
+            <form [formGroup]="loginForm">
+                <mat-form-field class="form-control-login">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input type="email" matInput placeholder="Escribe correo electrónico" formControlName="email">
+                    <mat-error>
+                        El nombre es obligatorio
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-control-login">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="password" matInput placeholder="Escribe contraseña" formControlName="password">
+                    <mat-error>
+                        El nombre es obligatorio
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        </div>
+        <div>
+            <button (click)="sendLogin(loginForm.value)" mat-raised-button color="primary">
+                Iniciar sesión
+            </button>
+        </div>
+
+    </mat-card>
+</div>

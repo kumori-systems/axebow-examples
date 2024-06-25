@@ -1,0 +1,6 @@
+<mat-nav-list>
+    <div mat-subheader class="menu-name">{{sidebarConfig?.menuName}}</div>
+    <ng-container *ngFor="let item of sidebarConfig?.sidebarItems">
+            <app-sidebar-item [sidebarItem]="item"></app-sidebar-item>
+    </ng-container>
+</mat-nav-list>

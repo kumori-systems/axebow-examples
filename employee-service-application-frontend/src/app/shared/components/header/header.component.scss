@@ -1,0 +1,49 @@
+@import './../../../../assets/scss/variables.scss';
+
+app-header{
+    .mat-toolbar{
+        background: $primary-background-color !important;
+    }
+    .menu-button{
+        background: transparent;
+        color: white;
+        border: none;
+        box-shadow: none;
+        border-radius: 50em;
+    }
+    
+    .logo-header-container{
+        padding-left: 2em;
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+            height: 75%;
+            object-fit: cover;
+        }
+        span{
+            font-weight: 100;
+            font-size: 0.8em;
+            padding-left: 1em;
+        }
+    }
+    .header-space{
+        flex: 1 1 auto;
+    }
+
+    .header-user{
+        font-size: 0.7em;
+    }
+    .header-logout{
+        margin-left: 1em;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .logo-header-container > span{
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button class="menu-button" (click)="toggleBurgerButton($event)"><mat-icon aria-hidden="false" aria-label="logout" >menu</mat-icon></button>
+    <div class="logo-header-container">
+      <img src="../../../../assets/images/logo-sort.png">
+      <span>Gestión empleados</span>
+    </div>
+    <span class="header-space"></span>
+    <span class="header-user">Administrador</span>
+    <button class="header-logout" mat-icon-button (click)="logout()">
+      <mat-icon  aria-hidden="false" aria-label="logout">exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

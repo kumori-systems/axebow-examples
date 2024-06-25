@@ -1,0 +1,8 @@
+<mat-list-item  [routerLink]="sidebarItem?.navigateTo" routerLinkActive="menu-router-link-active">
+                                <mat-icon mat-list-icon>{{sidebarItem?.iconName}}</mat-icon>
+                                <div mat-line class="sidebar-item-label" >{{sidebarItem?.label}}</div>
+                
+                </mat-list-item>
+<ng-container *ngIf="sidebarItem.hasDivider">
+        <mat-divider></mat-divider>
+</ng-container>

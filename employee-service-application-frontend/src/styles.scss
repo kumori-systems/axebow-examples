@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/variables.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.mat-card{
+    border-radius: 0px !important;
+}
+
+.table-container{
+    margin-top: 1em;
+}
+
+table {
+    width: 100%;
+  }
+
+.action-header{
+    padding-left: 1em !important;
+}
+
+
+.list-header-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2{
+        margin: 0px !important;
+    }
+}
+
+.detail-header-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    h2{
+        margin: 0px !important;
+    }
+}
+
+.button-container{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    button{
+        .mat-icon{
+            padding-left: 0.3em;
+        }
+    }
+}

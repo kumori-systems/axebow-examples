@@ -1,0 +1,81 @@
+= Employee management frontend
+
+Welcome to the employee management web application!
+
+This project is a user-friendly web app designed to manage company employees and departments.
+
+Built using [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+
+== Build
+
+[source]
+----
+# Build command pattern:
+#
+#  docker build -t $REGISTRY/$NAMESPACE/$IMAGE_NAME:$IMAGE_TAG .
+#
+# Example:
+# 
+#  Build to publish on GitHub's registry. Namespace "kumori-systems"
+
+docker build -t ghcr.io/kumori-systems/employee-service-application-frontend:1.0.0 .
+----
+
+== Publish
+
+Publish the container image to the Container registry.
+
+[source]
+----
+# Push command pattern:
+# 
+#  docker push $REGISTRY/$NAMESPACE/$IMAGE_NAME:$IMAGE_TAG
+#
+# Example:
+#
+#   Login GitHub's registry. Namespace "kumori-systems".
+#   Personal access token is stored in GITHUB_TOKEN environment var.
+
+echo [GITHUB_TOKEN] | docker login ghcr.io -u [USERNAME] --password-stdin
+
+# Then push the container image to the Github's registry
+
+docker push ghcr.io/kumori-systems/employee-service-application-frontend:1.0.0
+----
+
+Replace `[GITHUB_TOKEN]` with your personal token. Note, `the GITHUB_TOKEN` must be granted with: _repo_, _write:packages_, _read:packages_ and _delete:packages_ permissions.
+
+== Run 
+
+Before deploying on cloud, you can test locally using Docker:
+
+[source]
+----
+docker run --add-host host.docker.internal:host-gateway -p 80:80 -e "BASE_URL=http://localhost:3000/api" ghcr.io/kumori-systems/employee-service-application-frontend:1.0.0
+----
+
+== Development
+
+=== Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+=== Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+== Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+=== Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+=== Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+=== Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
