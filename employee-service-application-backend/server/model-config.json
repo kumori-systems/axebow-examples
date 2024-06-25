@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "../node_modules/loopback-softdelete",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "mongodb-employee-and-department"
+  },
+  "AccessToken": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": false
+  },
+  "Employee": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": true
+  },
+  "Department": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": true
+  },
+  "BaseModel": {
+    "dataSource": "mongodb-employee-and-department",
+    "public": false
+  }
+}

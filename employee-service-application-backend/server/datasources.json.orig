@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongodb-employee-and-department": {
+    "host": "db",
+    "port": "27017",
+    "url": "",
+    "database": "employee-and-department",
+    "password": "12341234",
+    "name": "mongodb-employee-and-department",
+    "user": "db-user",
+    "connector": "loopback-connector-mongodb"
+  }
+}

@@ -1,0 +1,60 @@
+= Employee management REST API
+
+Welcome to the employee management web application!
+
+This project is a REST API designed to manage company employees and departments.
+
+Generated with http://loopback.io[Loopback].
+
+== Build
+
+[source]
+----
+# Build command pattern:
+#
+#  docker build -t $REGISTRY/$NAMESPACE/$IMAGE_NAME:$IMAGE_TAG .
+#
+# Example:
+# 
+#  Build to publish on GitHub's registry. Namespace "kumori-systems"
+
+docker build -t ghcr.io/kumori-systems/employee-service-application-backend:1.0.0 .
+----
+
+== Publish
+
+Publish the container image to the Container registry.
+
+[source]
+----
+# Push command pattern:
+# 
+#  docker push $REGISTRY/$NAMESPACE/$IMAGE_NAME:$IMAGE_TAG
+#
+# Example:
+#
+#   Login GitHub's registry. Namespace "kumori-systems".
+#   Personal access token is stored in GITHUB_TOKEN environment var.
+
+echo [GITHUB_TOKEN] | docker login ghcr.io -u [USERNAME] --password-stdin
+
+# Then push the container image to the Github's registry
+
+docker push ghcr.io/kumori-systems/employee-service-application-backend:1.0.0
+----
+
+Replace `[GITHUB_TOKEN]` with your personal token. Note, `the GITHUB_TOKEN` must be granted with: _repo_, _write:packages_, _read:packages_ and _delete:packages_ permissions.
+
+== Run 
+
+Before deploying on cloud, you can test locally using Docker:
+
+[source]
+----
+docker run --add-host host.docker.internal:host-gateway -p 3000:3000 \
+  -e "DB_HOST=host.docker.internal" \
+  ghcr.io/kumori-systems/employee-service-application-backend:1.0.0
+----
+
+
+

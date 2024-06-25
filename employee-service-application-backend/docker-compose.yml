@@ -1,0 +1,24 @@
+version: "2.1"
+services:
+    api:
+        container_name: api
+        build:
+          context: .
+          dockerfile: ./Dockerfile
+        image: docker/api
+        restart: always
+        ports:
+          - "3000:3000"
+#        networks:
+#          employee-and-department-network:
+#            aliases:
+#              - api
+        extra_hosts:
+          - "host.docker.internal:host-gateway"
+        volumes:
+          - .:/app
+
+#networks:
+#  employee-and-department-network:
+#    external:
+#      name: employee-and-department-network
